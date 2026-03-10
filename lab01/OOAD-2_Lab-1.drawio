@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15" version="29.6.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15" version="29.6.1">
   <diagram name="Страница-1" id="E9fG7H_NRRUjIhBjO66l">
-    <mxGraphModel dx="1005" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1213" dy="631" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,29 +10,29 @@
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-2" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;i&gt;AbstractFactory&lt;/i&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="82" width="200" x="120" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-3" parent="CrIIHBjFlpLmKcblnHdZ-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateGunTower(): GunTower" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-3" parent="CrIIHBjFlpLmKcblnHdZ-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTurretTower(): TurretTower" vertex="1">
           <mxGeometry height="26" width="200" y="30" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-4" parent="CrIIHBjFlpLmKcblnHdZ-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTeslaTower(): TeslaTower" vertex="1">
           <mxGeometry height="26" width="200" y="56" as="geometry" />
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-5" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;i&gt;GunTower&lt;/i&gt;" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-5" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;i&gt;TurretTower&lt;/i&gt;" vertex="1">
           <mxGeometry height="30" width="159" x="361" y="120" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-6" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;i&gt;TeslaTower&lt;/i&gt;" vertex="1">
           <mxGeometry height="30" width="160" x="560" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-7" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;FirstLevelGunTower&lt;/span&gt;" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-7" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;FirstLevelTurretTower&lt;/span&gt;" vertex="1">
           <mxGeometry height="30" width="159" x="401" y="200" as="geometry">
             <mxRectangle height="30" width="150" x="401" y="200" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-8" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;SecondLevelGunTower&lt;/span&gt;" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-8" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;SecondLevelTurretTower&lt;/span&gt;" vertex="1">
           <mxGeometry height="30" width="159" x="401" y="250" as="geometry">
             <mxRectangle height="40" width="160" x="401" y="250" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-9" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;ThirdLevelGunTower&lt;/span&gt;" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-9" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;ThirdLevelTurretTower&lt;/span&gt;" vertex="1">
           <mxGeometry height="30" width="159" x="401" y="300" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-10" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span&gt;FirstLevelTeslaTower&lt;/span&gt;" vertex="1">
@@ -101,7 +101,7 @@
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-22" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;i&gt;FirstLevelFactory&lt;/i&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="82" width="200" x="80" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-23" parent="CrIIHBjFlpLmKcblnHdZ-22" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateGunTower(): GunTower" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-23" parent="CrIIHBjFlpLmKcblnHdZ-22" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTurretTower(): TurretTower" vertex="1">
           <mxGeometry height="26" width="200" y="30" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-24" parent="CrIIHBjFlpLmKcblnHdZ-22" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTeslaTower(): TeslaTower" vertex="1">
@@ -110,7 +110,7 @@
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-25" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;i&gt;SecondLevelFactory&lt;/i&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="82" width="200" x="80" y="340" as="geometry" />
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-26" parent="CrIIHBjFlpLmKcblnHdZ-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateGunTower(): GunTower" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-26" parent="CrIIHBjFlpLmKcblnHdZ-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTurretTower(): TurretTower" vertex="1">
           <mxGeometry height="26" width="200" y="30" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-27" parent="CrIIHBjFlpLmKcblnHdZ-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTeslaTower(): TeslaTower" vertex="1">
@@ -139,7 +139,7 @@
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-30" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;i&gt;ThirdLevelFactory&lt;/i&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="82" width="200" x="80" y="440" as="geometry" />
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-31" parent="CrIIHBjFlpLmKcblnHdZ-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateGunTower(): GunTower" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-31" parent="CrIIHBjFlpLmKcblnHdZ-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTurretTower(): TurretTower" vertex="1">
           <mxGeometry height="26" width="200" y="30" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-32" parent="CrIIHBjFlpLmKcblnHdZ-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ CreateTeslaTower(): TeslaTower" vertex="1">
@@ -192,7 +192,7 @@
             <mxPoint x="581" y="578" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CrIIHBjFlpLmKcblnHdZ-42" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;i&gt;GunTower&lt;/i&gt;" vertex="1">
+        <mxCell id="CrIIHBjFlpLmKcblnHdZ-42" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;i&gt;TurretTower&lt;/i&gt;" vertex="1">
           <mxGeometry height="30" width="159" x="381" y="598" as="geometry" />
         </mxCell>
         <mxCell id="CrIIHBjFlpLmKcblnHdZ-43" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;i&gt;TeslaTower&lt;/i&gt;" vertex="1">
