@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15" version="29.6.1" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1" pages="2">
   <diagram name="Абстрактная фабрика (Башни)" id="E9fG7H_NRRUjIhBjO66l">
     <mxGraphModel dx="2292" dy="1368" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -203,7 +203,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Фабричный метод (Враги)" id="qjZrDNLJKMzUzyIZtFpo">
-    <mxGraphModel dx="786" dy="469" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="jxrdO0bRywj-f0lW06Oj-0" />
         <mxCell id="jxrdO0bRywj-f0lW06Oj-1" parent="jxrdO0bRywj-f0lW06Oj-0" />
@@ -365,12 +365,12 @@
             <mxPoint x="528" y="202" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="b-pvGFQ6APoOdrLKC4SL-3" edge="1" parent="jxrdO0bRywj-f0lW06Oj-1" source="b-pvGFQ6APoOdrLKC4SL-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=open;endFill=0;" target="jxrdO0bRywj-f0lW06Oj-65">
+        <mxCell id="b-pvGFQ6APoOdrLKC4SL-3" edge="1" parent="jxrdO0bRywj-f0lW06Oj-1" source="b-pvGFQ6APoOdrLKC4SL-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=16;endSize=8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;" target="jxrdO0bRywj-f0lW06Oj-65">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="b-pvGFQ6APoOdrLKC4SL-4" connectable="0" parent="b-pvGFQ6APoOdrLKC4SL-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" value="-enemyFactories[3]" vertex="1">
           <mxGeometry relative="1" x="-0.6643" y="-1" as="geometry">
-            <mxPoint x="58" y="9" as="offset" />
+            <mxPoint x="57" y="9" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="b-pvGFQ6APoOdrLKC4SL-2" parent="jxrdO0bRywj-f0lW06Oj-1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;EnemySpawner&lt;/span&gt;" vertex="1">
