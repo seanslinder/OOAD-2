@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="doughItalian" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#f5d8ab"/>
+      <stop offset="100%" stop-color="#d9a56a"/>
+    </radialGradient>
+    <radialGradient id="sauceItalian" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#d33f2c"/>
+      <stop offset="100%" stop-color="#af2a1d"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="256" cy="256" r="236" fill="url(#doughItalian)" />
+  <circle cx="256" cy="256" r="190" fill="url(#sauceItalian)" opacity="0.9" />
+  <circle cx="208" cy="170" r="18" fill="#e1604c" opacity="0.35" />
+  <circle cx="320" cy="220" r="14" fill="#e1604c" opacity="0.35" />
+  <circle cx="230" cy="315" r="16" fill="#e1604c" opacity="0.35" />
+</svg>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Web Without Pattern</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel controls">
+        <h1>Pizza Lab Constructor</h1>
+        <p class="subtitle">Web GUI without using the Decorator pattern.</p>
+
+        <div class="group">
+          <h2>Base Pizza</h2>
+          <label class="option">
+            <input type="radio" name="base" value="italian" checked />
+            <span>Italian (10)</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="base" value="bulgarian" />
+            <span>Bulgarian (8)</span>
+          </label>
+        </div>
+
+        <div class="group">
+          <h2>Toppings</h2>
+          <label class="option">
+            <input type="checkbox" name="tomato" />
+            <span>Tomato (+3)</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" name="cheese" />
+            <span>Cheese (+5)</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" name="olives" />
+            <span>Olives (+4)</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" name="mushrooms" />
+            <span>Mushrooms (+4)</span>
+          </label>
+        </div>
+
+        <div class="summary">
+          <h2>Order Summary</h2>
+          <p><strong>Name:</strong> <span id="pizzaName"></span></p>
+          <p><strong>Price:</strong> <span id="pizzaPrice"></span></p>
+        </div>
+      </section>
+
+      <section class="panel preview">
+        <h2>Live Pizza Preview</h2>
+        <div class="pizza-stage" aria-live="polite">
+          <img
+            id="baseImage"
+            class="layer"
+            src="assets/images/base-italian.svg"
+            alt="Base pizza"
+          />
+          <img
+            id="tomatoLayer"
+            class="layer topping"
+            src="assets/images/topping-tomato.svg"
+            alt="Tomato topping"
+          />
+          <img
+            id="cheeseLayer"
+            class="layer topping"
+            src="assets/images/topping-cheese.svg"
+            alt="Cheese topping"
+          />
+          <img
+            id="olivesLayer"
+            class="layer topping"
+            src="assets/images/topping-olives.svg"
+            alt="Olives topping"
+          />
+          <img
+            id="mushroomsLayer"
+            class="layer topping"
+            src="assets/images/topping-mushrooms.svg"
+            alt="Mushrooms topping"
+          />
+        </div>
+        <p class="hint">Toggle toppings to see visual changes immediately.</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

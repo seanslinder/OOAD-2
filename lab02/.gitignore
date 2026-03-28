@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# CMake and build artifacts
+build/
+**/build/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Generated CMake directories/files
+CMakeFiles/
+**/CMakeFiles/
+
+# Qt/CMake helper artifacts (if present)
+.qt/
+
+# Compiled binaries and objects
+*.o
+*.obj
+*.out
+*.app
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Misc
+*.log
