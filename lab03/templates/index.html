@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторная №3 · Модератор контента</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="hero panel">
+        <p class="eyebrow">ООАП · Цепочка обязанностей</p>
+        <h1>Модератор контента</h1>
+        <p class="subtitle">
+          Введите сообщение, выберите активные фильтры и нажмите «Проверить».
+          Если найдено нарушение, цепочка остановится на первом сработавшем
+          фильтре. Каждый включенный фильтр проверяется ИИ.
+        </p>
+      </section>
+
+      <section class="panel controls">
+        <div class="section-head">
+          <label class="label" for="message">Сообщение</label>
+          <p class="hint">Подсказка: Cmd/Ctrl + Enter запускает проверку</p>
+        </div>
+        <textarea
+          id="message"
+          rows="6"
+          placeholder="Введите текст для проверки..."
+        ></textarea>
+        <p class="input-meta"><span id="charCount">0</span> символов</p>
+
+        <div class="model-picker">
+          <label class="label" for="modelSelect">Модель Ollama</label>
+          <select id="modelSelect" aria-label="Выбор модели Ollama"></select>
+          <p class="hint" id="modelStatus">Загрузка списка моделей...</p>
+        </div>
+
+        <div class="filter-grid">
+          <label class="check"
+            ><input type="checkbox" data-filter="profanity" checked />
+            Мат</label
+          >
+          <label class="check"
+            ><input type="checkbox" data-filter="spam" checked /> Спам</label
+          >
+          <label class="check"
+            ><input type="checkbox" data-filter="banned_topics" checked />
+            Запрещённые темы</label
+          >
+          <label class="check"
+            ><input type="checkbox" data-filter="links" checked /> Ссылки</label
+          >
+          <label class="check"
+            ><input type="checkbox" data-filter="insults" checked />
+            Оскорбления</label
+          >
+        </div>
+
+        <button id="checkBtn" class="check-btn">Проверить</button>
+      </section>
+
+      <section class="panel result" id="resultPanel" aria-live="polite">
+        <h2>Результат</h2>
+        <p id="resultStatus" class="status">Ожидание проверки...</p>
+        <p id="resultFilter" class="meta"></p>
+        <p id="resultReason" class="meta"></p>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
