@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-15T18:30:00.000Z" agent="Gemini CLI" version="21.0.0" type="device">
+  <diagram id="OOAD-Lab4" name="Scooter Rental UML">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Class: Ride -->
+        <mxCell id="ride" value="Ride&#xa;--&#xa;-id: String&#xa;-userId: String&#xa;-startTime: String&#xa;-endTime: String&#xa;-distanceKm: Real&#xa;-cost: Real&#xa;-status: RideStatus&#xa;--&#xa;+complete(endTime: String, dist: Real, cost: Real)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="280" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Class: RideStatus -->
+        <mxCell id="rideStatus" value="&lt;&lt;enumeration&gt;&gt;&#xa;RideStatus&#xa;--&#xa;ACTIVE&#xa;COMPLETED" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="660" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Interface: RideRepository -->
+        <mxCell id="rideRepo" value="&lt;&lt;interface&gt;&gt;&#xa;RideRepository&#xa;--&#xa;--&#xa;+save(ride: Ride)&#xa;+update(ride: Ride)&#xa;+findById(id: String): Ride&#xa;+findAll(): Ride[*]" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="240" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Class: RideService -->
+        <mxCell id="rideService" value="RideService&#xa;--&#xa;-rideRepo: RideRepository&#xa;-paymentGateway: PaymentGateway&#xa;-UNLOCK_FEE: Real&#xa;-PRICE_PER_MINUTE: Real&#xa;--&#xa;+RideService(repo, gateway)&#xa;+startRide(userId: String): String&#xa;+endRide(rideId: String, dist: Real)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="240" width="260" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Interface: PaymentGateway -->
+        <mxCell id="paymentGateway" value="&lt;&lt;interface&gt;&gt;&#xa;PaymentGateway&#xa;--&#xa;--&#xa;+charge(user: String, amt: Real): PaymentResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="240" width="300" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Class: PaymentResult -->
+        <mxCell id="paymentResult" value="PaymentResult&#xa;--&#xa;-successful: Boolean&#xa;-transactionId: String&#xa;-message: String&#xa;--&#xa;+PaymentResult(success, id, msg)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="440" width="240" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Class: PostgresRideRepository -->
+        <mxCell id="postgresRepo" value="PostgresRideRepository&#xa;--&#xa;-connection: String&#xa;--&#xa;+save(ride: Ride)&#xa;+update(ride: Ride)&#xa;+findById(id: String): Ride&#xa;+findAll(): Ride[*]" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="240" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Class: StripeGateway -->
+        <mxCell id="stripeGateway" value="StripeGateway&#xa;--&#xa;--&#xa;+charge(user: String, amt: Real): PaymentResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="40" width="300" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Class: WalletGateway -->
+        <mxCell id="walletGateway" value="WalletGateway&#xa;--&#xa;--&#xa;+charge(user: String, amt: Real): PaymentResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="40" width="300" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Class: App -->
+        <mxCell id="app" value="App&#xa;--&#xa;--&#xa;+main(args: String[*])" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+
+        <!-- RideService -> RideRepository (Association) -->
+        <mxCell id="rel1" value="association" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="rideService" target="rideRepo">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- RideService -> PaymentGateway (Association) -->
+        <mxCell id="rel2" value="association" style="endArrow=none;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="rideService" target="paymentGateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PostgresRideRepository -> RideRepository (Implementation) -->
+        <mxCell id="rel3" value="implementation" style="endArrow=block;dashed=1;endFill=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="postgresRepo" target="rideRepo">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- StripeGateway -> PaymentGateway (Implementation) -->
+        <mxCell id="rel4" value="implementation" style="endArrow=block;dashed=1;endFill=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="stripeGateway" target="paymentGateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- WalletGateway -> PaymentGateway (Implementation) -->
+        <mxCell id="rel5" value="implementation" style="endArrow=block;dashed=1;endFill=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="walletGateway" target="paymentGateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- RideRepository -> Ride (Dependency) -->
+        <mxCell id="rel6" value="dependency" style="endArrow=open;dashed=1;endFill=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="rideRepo" target="ride">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PaymentGateway -> PaymentResult (Dependency) -->
+        <mxCell id="rel7" value="dependency" style="endArrow=open;dashed=1;endFill=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="paymentGateway" target="paymentResult">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Ride -> RideStatus (Association) -->
+        <mxCell id="rel8" value="association" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ride" target="rideStatus">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- App -> RideService (Dependency) -->
+        <mxCell id="rel9" value="dependency" style="endArrow=open;dashed=1;endFill=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="app" target="rideService">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- App -> PostgresRideRepository (Dependency) -->
+        <mxCell id="rel10" value="dependency" style="endArrow=open;dashed=1;endFill=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="app" target="postgresRepo">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- App -> StripeGateway (Dependency) -->
+        <mxCell id="rel11" value="dependency" style="endArrow=open;dashed=1;endFill=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="app" target="stripeGateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
