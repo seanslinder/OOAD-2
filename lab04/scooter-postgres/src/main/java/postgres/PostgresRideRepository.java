@@ -6,6 +6,8 @@ import core.interfaces.RideRepository;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostgresRideRepository implements RideRepository {
 
@@ -57,22 +59,43 @@ public class PostgresRideRepository implements RideRepository {
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
-                String userId = rs.getString("user_id");
-                LocalDateTime startTime = rs.getTimestamp("start_time").toLocalDateTime();
-                Ride ride = new Ride(rideId, userId, startTime);
-                
-                String status = rs.getString("status");
-                if (RideStatus.COMPLETED.name().equals(status)) {
-                    LocalDateTime endTime = rs.getTimestamp("end_time").toLocalDateTime();
-                    double distanceKm = rs.getDouble("distance_km");
-                    double cost = rs.getDouble("cost");
-                    ride.complete(endTime, distanceKm, cost);
-                }
-                return ride;
+                return mapRowToRide(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public List<Ride> findAll() {
+        List<Ride> rides = new ArrayList<>();
+        String sql = "SELECT * FROM rides ORDER BY start_time DESC";
+        try (PreparedStatement stmt = connection.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            
+            while (rs.next()) {
+                rides.add(mapRowToRide(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rides;
+    }
+
+    private Ride mapRowToRide(ResultSet rs) throws SQLException {
+        String id = rs.getString("id");
+        String userId = rs.getString("user_id");
+        LocalDateTime startTime = rs.getTimestamp("start_time").toLocalDateTime();
+        Ride ride = new Ride(id, userId, startTime);
+        
+        String status = rs.getString("status");
+        if (RideStatus.COMPLETED.name().equals(status)) {
+            LocalDateTime endTime = rs.getTimestamp("end_time").toLocalDateTime();
+            double distanceKm = rs.getDouble("distance_km");
+            double cost = rs.getDouble("cost");
+            ride.complete(endTime, distanceKm, cost);
+        }
+        return ride;
     }
 }
