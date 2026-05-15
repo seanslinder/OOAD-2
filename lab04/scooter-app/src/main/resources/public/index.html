@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooter Rental Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Scooter Rental Service</h1>
+        
+        <div class="card">
+            <h2>Start a New Ride</h2>
+            <div class="form-group">
+                <input type="text" id="userId" placeholder="Enter User ID (e.g. USR-123)">
+                <button onclick="startRide()">Start Ride</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Active Rides</h2>
+            <div id="active-rides">
+                <p>No active rides.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Ride History</h2>
+            <table id="ride-history">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Dist (km)</th>
+                        <th>Cost ($)</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="ride-list">
+                    <!-- Rides will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for ending ride -->
+    <div id="endRideModal" class="modal">
+        <div class="modal-content">
+            <h3>End Ride</h3>
+            <p id="modalRideIdText"></p>
+            <div class="form-group">
+                <label for="distance">Distance Traveled (km):</label>
+                <input type="number" id="distance" step="0.1" value="1.0">
+            </div>
+            <div class="modal-actions">
+                <button onclick="confirmEndRide()">Confirm End</button>
+                <button class="secondary" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

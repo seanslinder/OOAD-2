@@ -1,53 +1,94 @@
 package app;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import core.interfaces.PaymentGateway;
 import core.interfaces.RideRepository;
 import core.service.RideService;
 import gateways.StripeGateway;
-import gateways.WalletGateway;
+import io.javalin.Javalin;
+import io.javalin.http.HttpStatus;
+import io.javalin.json.JavalinJackson;
 import postgres.PostgresRideRepository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Map;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Starting City E-Scooter API...");
+        System.out.println("Starting City E-Scooter Web API...");
 
         // 1. Setup Infrastructure: Database Connection
-        // (Make sure docker-compose is running before launching this)
         String jdbcUrl = "jdbc:postgresql://localhost:5432/scooter_db";
         Connection connection = DriverManager.getConnection(jdbcUrl, "scooter_user", "scooter_password");
 
-        // 2. Instantiate implementations of the Separated Interfaces
+        // 2. Instantiate implementations
         RideRepository rideRepository = new PostgresRideRepository(connection);
-        
-        // We can swap PaymentGateways seamlessly
-        PaymentGateway stripeGateway = new StripeGateway();
-        PaymentGateway walletGateway = new WalletGateway();
+        PaymentGateway paymentGateway = new StripeGateway();
 
         // 3. Inject dependencies into Core Service
-        RideService rideServiceWithStripe = new RideService(rideRepository, stripeGateway);
-        RideService rideServiceWithWallet = new RideService(rideRepository, walletGateway);
+        RideService rideService = new RideService(rideRepository, paymentGateway);
 
-        // 4. Simulate a user journey (Using Stripe)
-        System.out.println("\n--- User 1: Ride simulation (Stripe Gateway) ---");
-        String rideId1 = rideServiceWithStripe.startRide("USR-ALICE-99");
-        
-        // Simulate time passing (Sleep 1.5 seconds)
-        Thread.sleep(1500);
-        
-        rideServiceWithStripe.endRide(rideId1, 2.5); // Distance 2.5km
+        // 4. Configure Jackson for Javalin
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
 
-        // 5. Simulate another user journey (Using Wallet)
-        System.out.println("\n--- User 2: Ride simulation (Internal Wallet Gateway) ---");
-        String rideId2 = rideServiceWithWallet.startRide("USR-BOB-42");
-        Thread.sleep(1000);
-        rideServiceWithWallet.endRide(rideId2, 1.2);
+        // 5. Start Javalin
+        Javalin app = Javalin.create(config -> {
+            config.staticFiles.add("/public");
+            config.jsonMapper(new JavalinJackson(objectMapper, false));
+        }).start(7070);
 
-        // Cleanup
-        connection.close();
-        System.out.println("\nApp Finished.");
+        // --- API Routes ---
+
+        // List all rides
+        app.get("/api/rides", ctx -> {
+            ctx.json(rideRepository.findAll());
+        });
+
+        // Start a ride
+        app.post("/api/rides/start", ctx -> {
+            Map<String, String> body = ctx.bodyAsClass(Map.class);
+            String userId = body.get("userId");
+            if (userId == null || userId.isEmpty()) {
+                ctx.status(HttpStatus.BAD_REQUEST).result("userId is required");
+                return;
+            }
+            String rideId = rideService.startRide(userId);
+            ctx.status(HttpStatus.CREATED).json(Map.of("rideId", rideId));
+        });
+
+        // End a ride
+        app.post("/api/rides/end", ctx -> {
+            Map<String, Object> body = ctx.bodyAsClass(Map.class);
+            String rideId = (String) body.get("rideId");
+            Number distance = (Number) body.get("distance");
+
+            if (rideId == null || distance == null) {
+                ctx.status(HttpStatus.BAD_REQUEST).result("rideId and distance are required");
+                return;
+            }
+
+            try {
+                rideService.endRide(rideId, distance.doubleValue());
+                ctx.status(HttpStatus.OK).result("Ride ended successfully");
+            } catch (Exception e) {
+                ctx.status(HttpStatus.INTERNAL_SERVER_ERROR).result(e.getMessage());
+            }
+        });
+
+        System.out.println("Web Interface available at: http://localhost:7070");
+
+        // Runtime shutdown hook to close connection
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                connection.close();
+                System.out.println("Database connection closed.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }));
     }
 }
