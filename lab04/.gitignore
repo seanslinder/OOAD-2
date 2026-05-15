@@ -1,5 +1,11 @@
-# Build files
-scooter-app/target
-scooter-core/target
-scooter-gateways/target
-scooter-postgres/target
+target/
+*.class
+.idea/
+*.iml
+.project
+.settings/
+.classpath
+scooter-app/target/
+scooter-core/target/
+scooter-gateways/target/
+scooter-postgres/target/
