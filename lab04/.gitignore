@@ -1,5 +1,5 @@
 # Build files
-lab04/scooter-app/target
-lab04/scooter-core/target
-lab04/scooter-gateways/target
-lab04/scooter-postgres/target
+scooter-app/target
+scooter-core/target
+scooter-gateways/target
+scooter-postgres/target
