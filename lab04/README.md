@@ -13,7 +13,7 @@
 1. `scooter-core`: Ядро системы. Содержит доменные модели (`Ride`), бизнес-логику (`RideService`) и интерфейсы-порты (`RideRepository`, `PaymentGateway`). Не имеет внешних зависимостей.
 2. `scooter-postgres`: Инфраструктурный модуль. Реализует интерфейс `RideRepository` для работы с базой данных PostgreSQL через JDBC.
 3. `scooter-gateways`: Инфраструктурный модуль. Содержит реализации `PaymentGateway` для различных платежных систем (Stripe, внутренний кошелек).
-4. `scooter-app`: Слой приложения. Связывает (wire) реализации инфраструктуры с ядром через Dependency Injection и запускает Web-сервер (Javalin).
+4. `scooter-app`: Слой приложения. Связывает реализации инфраструктуры с ядром через Dependency Injection и запускает Web-сервер (Javalin).
 
 ## Применённый паттерн
 
